@@ -1,0 +1,79 @@
+{
+  "name": "ecovision-ai",
+  "version": "2.1.0",
+  "description": "AI-powered waste segregation platform supporting UN SDG 12 & 13",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o static/css/style.min.css static/css/style.css",
+    "minify-js": "uglifyjs static/js/app.js -o static/js/app.min.js",
+    "test": "npm run test-frontend && npm run test-python",
+    "test-frontend": "jest",
+    "test-python": "cd .. && python -m pytest tests/",
+    "lint": "eslint static/js/ --ext .js",
+    "format": "prettier --write static/js/*.js static/css/*.css",
+    "deploy": "gh-pages -d .",
+    "start": "python src/app.py"
+  },
+  "keywords": [
+    "ai",
+    "machine-learning",
+    "waste-management",
+    "sustainability",
+    "sdg",
+    "computer-vision",
+    "tensorflow",
+    "environmental",
+    "hackathon",
+    "web-app"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ecovision-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/ecovision-ai/issues"
+  },
+  "homepage": "https://your-username.github.io/ecovision-ai/",
+  "devDependencies": {
+    "@tensorflow/tfjs": "^4.10.0",
+    "chart.js": "^3.9.1",
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.45.0",
+    "gh-pages": "^5.0.0",
+    "jest": "^29.6.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0",
+    "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  }
+}
